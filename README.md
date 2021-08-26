@@ -1,11 +1,11 @@
 # pruebaMibus
 
-##Herramientas
+## Herramientas
 
 Python
 DB Browser for SQLite
 
-#Salidas:
+# Salidas:
 
 Tablas Creadas
 
