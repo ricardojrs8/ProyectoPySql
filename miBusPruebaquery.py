@@ -1,7 +1,8 @@
 # Importamos el módulo
 import sqlite3
 import csv
-
+import pandas as pd
+import numpy as np
 
 conexion = sqlite3.connect("mibus.db")
 cursor   = conexion.cursor()
@@ -116,9 +117,42 @@ def fecha_transaccion(conexion):
     registros22 = cursor22.fetchall()
     registros23 = cursor23.fetchall()
     registros24 = cursor24.fetchall()
+
+    
+
+    registro1 = len(registros1)
+    registro2 = len(registros2)
+    registro3 = len(registros3)
+    registro4 = len(registros4)
+    registro5 = len(registros5)
+    registro6 = len(registros6)
+    registro7 = len(registros7)
+    registro8 = len(registros8)
+    registro9 = len(registros9)
+    registro10 = len(registros10)
+    registro11 = len(registros11)
+    registro12 = len(registros12)
+    registro13 = len(registros13)
+    registro14 = len(registros14)
+    registro15 = len(registros15)
+    registro16 = len(registros16)
+    registro17 = len(registros17)
+    registro18 = len(registros18)
+    registro19 = len(registros19)
+    registro20 = len(registros20)
+    registro21 = len(registros21)
+    registro22 = len(registros22)
+    registro23 = len(registros23)
+    registro24 = len(registros24)
+
+    listados =[registro1,registro2,registro3,registro4,registro5,registro6,registro7,registro8,registro9,registro10,registro11,registro12,registro13,registro14,registro15,registro16,registro17,registro18,registro19,registro20,registro21,registro22,registro23,registro24]
+    arr = np.array(listados)
+
+    ##print(arr)
+
     print("")
     print("------ MAÑANA ------ "+'\n')
-    print(len(registros1), "Transaciones a las 1 del 01/26/2018")
+    print(registro1, "Transaciones a las 1 del 01/26/2018")
     print(len(registros2), "Transaciones a las 2 del 01/26/2018")
     print(len(registros3), "Transaciones a las 3 del 01/26/2018")
     print(len(registros4), "Transaciones a las 4 del 01/26/2018")
@@ -148,6 +182,10 @@ def fecha_transaccion(conexion):
     print(len(registros22), "Transaciones a las 22 del 01/26/2018")
     print(len(registros23), "Transaciones a las 23 del 01/26/2018")
     print(len(registros24), "Transaciones a las 24 del 01/26/2018")
+
+    df1=pd.DataFrame(arr)
+    df1.reset_index().to_csv('pregun1.csv', header=True, index=False)
+
 
 def bus_max_30(conexion):
     sql1 = "SELECT bus FROM transacciones WHERE bus = 411"
